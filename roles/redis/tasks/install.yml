@@ -1,8 +1,3 @@
----
-- name: Set timezone
-  timezone:
-    name: Europe/Moscow
-
 - name: "Installing pre install"
   apt:
     name: 
