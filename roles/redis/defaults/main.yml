@@ -1,0 +1,8 @@
+---
+redis_config_path: /etc/redis/redis.conf
+
+redis_default_params:
+  bind: '0.0.0.0 ::'
+  port: '6379'
+
+redis_params: {}

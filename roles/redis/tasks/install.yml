@@ -1,0 +1,28 @@
+---
+- name: Set timezone
+  timezone:
+    name: Europe/Moscow
+
+- name: "Installing pre install"
+  apt:
+    name: 
+      - ca-certificates
+      - apt-transport-https
+      - software-properties-common
+    state: "latest"
+    update_cache: true
+
+- name: Добавление репозитория Redis
+  apt_repository:
+    repo: "ppa:redislabs/redis"
+
+- name: install packages
+  apt:
+    name: redis-server
+    update_cache: yes
+    cache_valid_time: 86400
+
+- name: enable service
+  service:
+    name: redis-server
+    enabled: yes

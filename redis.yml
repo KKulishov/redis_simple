@@ -1,0 +1,16 @@
+---
+  - name: Delete nginx site
+    hosts:
+      - all
+    gather_facts: true
+    become: true
+    roles:
+      - role: netdata
+        redis_params:
+          maxmemory: 256mb
+          maxmemory-policy: volatile-ttl
+          "save 900": 1
+          "save 300": 10
+          "save 60": 10000
+          "tcp-keepalive": 300
+          "loglevel": notice
